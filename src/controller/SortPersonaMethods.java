@@ -7,7 +7,7 @@ public class SortPersonaMethods {
      for( int i = 1 ; i< persona.length ; i++){
         Persona aux = persona[i];
         int j = i-1;
-        while(j>= 0 && persona[j].getNombre().equalsIgnoreCase(aux.getNombre())){
+        while(j >= 0 && persona[j].getCriterioOrdenamiento() > aux.getCriterioOrdenamiento()){
             persona[j+1]= persona[j];
             j--;
 
@@ -25,6 +25,8 @@ public class SortPersonaMethods {
         }
     }
     private int particionar(Persona[] personas, int inicio, int fin){
+        int medio = inicio + (fin - inicio) / 2;  
+        intercambiar(personas, medio, fin);
         Persona pivote = personas[fin];
         int i = inicio-1;
 
